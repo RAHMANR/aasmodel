@@ -1,0 +1,98 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-IN",
+    "dataSources": [
+      {
+        "name": "SqlServer HPHLT-1151SHAFEEQ AdventureWorks2017",
+        "connectionString": "Provider=SQLNCLI11;Data Source=HPHLT-1151\\SHAFEEQ;User ID=Aas;Persist Security Info=false;Initial Catalog=AdventureWorks2017",
+        "impersonationMode": "impersonateServiceAccount",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "EmployeePayHistory",
+        "columns": [
+          {
+            "name": "BusinessEntityID",
+            "dataType": "int64",
+            "sourceColumn": "BusinessEntityID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "RateChangeDate",
+            "dataType": "dateTime",
+            "sourceColumn": "RateChangeDate",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "Rate",
+            "dataType": "decimal",
+            "sourceColumn": "Rate",
+            "formatString": "\"₹\" #,0.00;#,0.00 -\"₹\";\"₹\" #,0.00",
+            "sourceProviderType": "Currency",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"16393\" DisplayName=\"₹ English (India)\" Symbol=\"₹\" PositivePattern=\"2\" NegativePattern=\"12\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "PayFrequency",
+            "dataType": "int64",
+            "sourceColumn": "PayFrequency",
+            "sourceProviderType": "UnsignedTinyInt"
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ModifiedDate",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "EmployeePayHistory",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [HumanResources].[EmployeePayHistory].* FROM [HumanResources].[EmployeePayHistory] ",
+              "dataSource": "SqlServer HPHLT-1151SHAFEEQ AdventureWorks2017"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [HumanResources].[EmployeePayHistory].* FROM [HumanResources].[EmployeePayHistory] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "EmployeePayHistory"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "HumanResources"
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
