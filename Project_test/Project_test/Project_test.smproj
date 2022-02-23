@@ -12,7 +12,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Development' ">
     <OutputPath>bin\</OutputPath>
-    <DeploymentServerName>asazure://centralus.asazure.windows.net/salesbi:rw</DeploymentServerName>
+    <DeploymentServerName>asazure://centralus.asazure.windows.net/releasepipelinetest:rw</DeploymentServerName>
     <DeploymentServerEdition>Developer</DeploymentServerEdition>
     <DeploymentServerVersion>Unknown</DeploymentServerVersion>
     <DeploymentServerDatabase>Project_test</DeploymentServerDatabase>
@@ -24,7 +24,7 @@
     <DeploymentOptionQueryImpersonation>Default</DeploymentOptionQueryImpersonation>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == '' ">
-    <DeploymentServerName>localhost</DeploymentServerName>
+    <DeploymentServerName>asazure://centralus.asazure.windows.net/releasepipelinetest:rw</DeploymentServerName>
     <DeploymentServerEdition>Developer</DeploymentServerEdition>
     <DeploymentServerVersion>Unknown</DeploymentServerVersion>
     <DeploymentServerDatabase>Project_test</DeploymentServerDatabase>
