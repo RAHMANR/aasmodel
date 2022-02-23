@@ -14,6 +14,17 @@
             "value": "SqlServer"
           }
         ]
+      },
+      {
+        "name": "SqlServer HPHLT-1151SHAFEEQ AdventureWorks2017 2",
+        "connectionString": "Provider=SQLNCLI11;Data Source=HPHLT-1151\\SHAFEEQ;Initial Catalog=AdventureWorks2017;User ID=Admin;Persist Security Info=false",
+        "impersonationMode": "impersonateServiceAccount",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
       }
     ],
     "tables": [
@@ -79,6 +90,192 @@
           {
             "name": "_TM_ExtProp_DbTableName",
             "value": "EmployeePayHistory"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "HumanResources"
+          }
+        ]
+      },
+      {
+        "name": "Department",
+        "columns": [
+          {
+            "name": "DepartmentID",
+            "dataType": "int64",
+            "sourceColumn": "DepartmentID",
+            "sourceProviderType": "SmallInt"
+          },
+          {
+            "name": "Name",
+            "dataType": "string",
+            "sourceColumn": "Name",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "GroupName",
+            "dataType": "string",
+            "sourceColumn": "GroupName",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ModifiedDate",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Department",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [HumanResources].[Department].* FROM [HumanResources].[Department] ",
+              "dataSource": "SqlServer HPHLT-1151SHAFEEQ AdventureWorks2017 2"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [HumanResources].[Department].* FROM [HumanResources].[Department] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Department"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "HumanResources"
+          }
+        ]
+      },
+      {
+        "name": "Employee",
+        "columns": [
+          {
+            "name": "BusinessEntityID",
+            "dataType": "int64",
+            "sourceColumn": "BusinessEntityID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "NationalIDNumber",
+            "dataType": "string",
+            "sourceColumn": "NationalIDNumber",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "LoginID",
+            "dataType": "string",
+            "sourceColumn": "LoginID",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "OrganizationNode",
+            "dataType": "string",
+            "sourceColumn": "OrganizationNode",
+            "sourceProviderType": "132"
+          },
+          {
+            "name": "OrganizationLevel",
+            "dataType": "int64",
+            "sourceColumn": "OrganizationLevel",
+            "sourceProviderType": "SmallInt"
+          },
+          {
+            "name": "JobTitle",
+            "dataType": "string",
+            "sourceColumn": "JobTitle",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "BirthDate",
+            "dataType": "dateTime",
+            "sourceColumn": "BirthDate",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "MaritalStatus",
+            "dataType": "string",
+            "sourceColumn": "MaritalStatus",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Gender",
+            "dataType": "string",
+            "sourceColumn": "Gender",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "HireDate",
+            "dataType": "dateTime",
+            "sourceColumn": "HireDate",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "SalariedFlag",
+            "dataType": "boolean",
+            "sourceColumn": "SalariedFlag",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
+            "sourceProviderType": "Boolean"
+          },
+          {
+            "name": "VacationHours",
+            "dataType": "int64",
+            "sourceColumn": "VacationHours",
+            "sourceProviderType": "SmallInt"
+          },
+          {
+            "name": "SickLeaveHours",
+            "dataType": "int64",
+            "sourceColumn": "SickLeaveHours",
+            "sourceProviderType": "SmallInt"
+          },
+          {
+            "name": "CurrentFlag",
+            "dataType": "boolean",
+            "sourceColumn": "CurrentFlag",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
+            "sourceProviderType": "Boolean"
+          },
+          {
+            "name": "rowguid",
+            "dataType": "string",
+            "sourceColumn": "rowguid",
+            "sourceProviderType": "Guid"
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ModifiedDate",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Employee",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [HumanResources].[Employee].* FROM [HumanResources].[Employee] ",
+              "dataSource": "SqlServer HPHLT-1151SHAFEEQ AdventureWorks2017 2"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [HumanResources].[Employee].* FROM [HumanResources].[Employee] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Employee"
           },
           {
             "name": "_TM_ExtProp_DbSchemaName",
